@@ -48,13 +48,20 @@
       let produtos = JSON.parse(localStorage.getItem('produtos'));
       console.log(produtos);
       if (!produtos) {
-        produtos = [];
+        produtos = [
+          {
+            id: 1,
+            qt: 0,
+          },
+        ];
       }
       console.log(produtos);
 
       let inputEntrada = document.getElementById('qtEntrada-1');
       let inputSaida = document.getElementById('qtSaida-1');
       let inputTotal = document.getElementById('total-1');
+
+      inputTotal.innerHTML = produtos[0].qt;
 
       inputEntrada.addEventListener('blur', () => {
         calc();
