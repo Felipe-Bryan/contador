@@ -38,7 +38,10 @@
         </thead>
         <tbody>
           <tr class="familia">
-            <td colspan="5">Doritos</td>
+            <td colspan="4">Doritos</td>
+            <td>
+              <button onclick="limpar()">Limpar</button>
+            </td>
           </tr>
           <tr class="produto">
             <td>Doritos Nacho 300g</td>
@@ -206,6 +209,10 @@
 
       function saveStorage() {
         localStorage.setItem('produtos', JSON.stringify(produtos));
+      }
+
+      function limpar() {
+        localStorage.removeItem('produtos');
       }
     </script>
   </body>
