@@ -52,7 +52,7 @@
               <button class="btn btn-light" onclick="showDoritos()">Doritos</button>
             </td>
           </tr>
-          <tr class="produto doritos">
+          <tr class="produto doritos" style="display: none">
             <td>Doritos Nacho 300g</td>
             <td>8</td>
             <td class="totalIpt">0</td>
@@ -63,7 +63,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto doritos">
+          <tr class="produto doritos" style="display: none">
             <td>Doritos Nacho 210g</td>
             <td>12</td>
             <td class="totalIpt">0</td>
@@ -74,7 +74,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto doritos">
+          <tr class="produto doritos" style="display: none">
             <td>Doritos Nacho 140g</td>
             <td>15</td>
             <td class="totalIpt">0</td>
@@ -85,7 +85,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto doritos">
+          <tr class="produto doritos" style="display: none">
             <td>Doritos Nacho 84g</td>
             <td>25</td>
             <td class="totalIpt">0</td>
@@ -96,7 +96,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto doritos">
+          <tr class="produto doritos" style="display: none">
             <td>Doritos Nacho 53g</td>
             <td>40</td>
             <td class="totalIpt">0</td>
@@ -107,7 +107,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto doritos">
+          <tr class="produto doritos" style="display: none">
             <td>Doritos Sweet Chili 53g</td>
             <td>40</td>
             <td class="totalIpt">0</td>
@@ -118,7 +118,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto doritos">
+          <tr class="produto doritos" style="display: none">
             <td>Doritos Dinamita Chipottle Mayo 84g</td>
             <td>29</td>
             <td class="totalIpt">0</td>
@@ -129,7 +129,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto doritos">
+          <tr class="produto doritos" style="display: none">
             <td>Doritos Dinamita Spicy Cheese 84g</td>
             <td>29</td>
             <td class="totalIpt">0</td>
@@ -140,7 +140,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto doritos">
+          <tr class="produto doritos" style="display: none">
             <td>Doritos Dinamita Chipottle Mayo 53g</td>
             <td>72</td>
             <td class="totalIpt">0</td>
@@ -151,7 +151,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto doritos">
+          <tr class="produto doritos" style="display: none">
             <td>Doritos Dinamita Spicy Cheese 53g</td>
             <td>72</td>
             <td class="totalIpt">0</td>
@@ -172,7 +172,7 @@
       let listaInputsTotal = document.querySelectorAll('.totalIpt');
       let produtos = JSON.parse(localStorage.getItem('produtos'));
 
-      let doritosFlag = true;
+      let doritosFlag = false;
       let doritosItems = document.querySelectorAll('.doritos');
 
       if (!produtos) {
