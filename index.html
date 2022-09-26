@@ -25,8 +25,7 @@
       .button {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
-        margin-right: 60px;
+        justify-content: space-around;
         margin-top: 10px;
       }
     </style>
@@ -34,18 +33,216 @@
   <body>
     <div class="table-responsive-sm">
       <div class="button">
-        <button type="button" class="btn btn-danger" onclick="limpar()">Limpar</button>
+        <button id="btnMarcados" type="button" class="btn btn-secondary" onclick="exibirMarcados()">Marcados</button>
+        <button id="btnVoltar" type="button" class="btn btn-secondary" onclick="exibirProdutos()" style="display: none">Voltar</button>
+        <button id="btnLimpar" type="button" class="btn btn-danger" onclick="limpar()">Limpar</button>
       </div>
-      <table class="table table-striped">
+      <table class="table table-striped" id="tableProdutos">
         <thead>
           <tr>
-            <th>Produto</th>
-            <th>Quantidade</th>
-            <th>Adicionar</th>
-            <th>Remover</th>
+            <th id="celProduto">Produto</th>
+            <th id="celQt">Quantidade</th>
+            <th id="celAdd">Adicionar</th>
+            <th id="celRemove">Remover</th>
           </tr>
         </thead>
         <tbody>
+          <tr class="familia">
+            <td colspan="4">
+              <div class="d-grid gap-2">
+                <button class="btn btn-outline-secondary" type="button" onclick="showDrinks()">Drinks</button>
+              </div>
+            </td>
+          </tr>
+          <tr class="produto drink" style="display: none">
+            <td class="nomeProduto">Toddynho 200ml</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto drink" style="display: none">
+            <td class="nomeProduto">Toddynho Levinho 200ml</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto drink" style="display: none">
+            <td class="nomeProduto">Kero Coco 200ml</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto drink" style="display: none">
+            <td class="nomeProduto">Kero Coco 330ml</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <!-- ------------------------------------------------------------------------------- -->
+          <tr class="familia">
+            <td colspan="4">
+              <div class="d-grid gap-2">
+                <button class="btn btn-outline-secondary" type="button" onclick="showAmendoins()">Amendoins</button>
+              </div>
+            </td>
+          </tr>
+          <tr class="produto amendoim" style="display: none">
+            <td class="nomeProduto">Amendoim Ovinho 170g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto amendoim" style="display: none">
+            <td class="nomeProduto">Amendoim Ovinho 65g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto amendoim" style="display: none">
+            <td class="nomeProduto">Amendoim Ovinho Wasabi 140g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto amendoim" style="display: none">
+            <td class="nomeProduto">Amendoim Ovinho Flamin' Hot 140g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto amendoim" style="display: none">
+            <td class="nomeProduto">Amendoim Ovinho Wasabi 50g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto amendoim" style="display: none">
+            <td class="nomeProduto">Amendoim Ovinho Flamin' Hot 50g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto amendoim" style="display: none">
+            <td class="nomeProduto">Amendoim Ovinho Barbecue 130g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto amendoim" style="display: none">
+            <td class="nomeProduto">Amendoim Ovinho Barbecue 50g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto amendoim" style="display: none">
+            <td class="nomeProduto">Amendoim Sem Pele Enchilado 85g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto amendoim" style="display: none">
+            <td class="nomeProduto">Amendoim Sem Pele Enchilado 38g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto amendoim" style="display: none">
+            <td class="nomeProduto">Amendoim Sem Pele 100g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto amendoim" style="display: none">
+            <td class="nomeProduto">Amendoim Sem Pele 40g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto amendoim" style="display: none">
+            <td class="nomeProduto">Amendoim Japonês 145g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto amendoim" style="display: none">
+            <td class="nomeProduto">Amendoim Japonês 45g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <!-- ------------------------------------------------------------------------------- -->
           <tr class="familia">
             <td colspan="4">
               <div class="d-grid gap-2">
@@ -54,7 +251,7 @@
             </td>
           </tr>
           <tr class="produto doritos" style="display: none">
-            <td>Doritos Nacho 300g</td>
+            <td class="nomeProduto">Doritos Nacho 300g</td>
             <td class="totalIpt">0</td>
             <td>
               <input type="number" class="iptEntrada" min="0" placeholder="  +" />
@@ -64,7 +261,7 @@
             </td>
           </tr>
           <tr class="produto doritos" style="display: none">
-            <td>Doritos Nacho 210g</td>
+            <td class="nomeProduto">Doritos Nacho 210g</td>
             <td class="totalIpt">0</td>
             <td>
               <input type="number" class="iptEntrada" min="0" placeholder="  +" />
@@ -74,7 +271,7 @@
             </td>
           </tr>
           <tr class="produto doritos" style="display: none">
-            <td>Doritos Nacho 140g</td>
+            <td class="nomeProduto">Doritos Nacho 140g</td>
             <td class="totalIpt">0</td>
             <td>
               <input type="number" class="iptEntrada" min="0" placeholder="  +" />
@@ -84,7 +281,7 @@
             </td>
           </tr>
           <tr class="produto doritos" style="display: none">
-            <td>Doritos Nacho 84g</td>
+            <td class="nomeProduto">Doritos Nacho 84g</td>
             <td class="totalIpt">0</td>
             <td>
               <input type="number" class="iptEntrada" min="0" placeholder="  +" />
@@ -94,7 +291,7 @@
             </td>
           </tr>
           <tr class="produto doritos" style="display: none">
-            <td>Doritos Nacho 53g</td>
+            <td class="nomeProduto">Doritos Dippas 84g</td>
             <td class="totalIpt">0</td>
             <td>
               <input type="number" class="iptEntrada" min="0" placeholder="  +" />
@@ -104,7 +301,7 @@
             </td>
           </tr>
           <tr class="produto doritos" style="display: none">
-            <td>Doritos Sweet Chili 53g</td>
+            <td class="nomeProduto">Doritos Nacho 53g</td>
             <td class="totalIpt">0</td>
             <td>
               <input type="number" class="iptEntrada" min="0" placeholder="  +" />
@@ -114,7 +311,7 @@
             </td>
           </tr>
           <tr class="produto doritos" style="display: none">
-            <td>Doritos Dinamita Chipottle Mayo 84g</td>
+            <td class="nomeProduto">Doritos Sweet Chili 53g</td>
             <td class="totalIpt">0</td>
             <td>
               <input type="number" class="iptEntrada" min="0" placeholder="  +" />
@@ -124,7 +321,7 @@
             </td>
           </tr>
           <tr class="produto doritos" style="display: none">
-            <td>Doritos Dinamita Spicy Cheese 84g</td>
+            <td class="nomeProduto">Doritos Dinamita Chipottle Mayo 84g</td>
             <td class="totalIpt">0</td>
             <td>
               <input type="number" class="iptEntrada" min="0" placeholder="  +" />
@@ -134,7 +331,7 @@
             </td>
           </tr>
           <tr class="produto doritos" style="display: none">
-            <td>Doritos Dinamita Chipottle Mayo 53g</td>
+            <td class="nomeProduto">Doritos Dinamita Spicy Cheese 84g</td>
             <td class="totalIpt">0</td>
             <td>
               <input type="number" class="iptEntrada" min="0" placeholder="  +" />
@@ -144,7 +341,7 @@
             </td>
           </tr>
           <tr class="produto doritos" style="display: none">
-            <td>Doritos Dinamita Spicy Cheese 53g</td>
+            <td class="nomeProduto">Doritos Dinamita Chipottle Mayo 53g</td>
             <td class="totalIpt">0</td>
             <td>
               <input type="number" class="iptEntrada" min="0" placeholder="  +" />
@@ -153,6 +350,37 @@
               <input type="number" class="iptSaida" min="0" placeholder="  -" />
             </td>
           </tr>
+          <tr class="produto doritos" style="display: none">
+            <td class="nomeProduto">Doritos Dinamita Spicy Cheese 53g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto doritos" style="display: none">
+            <td class="nomeProduto">Doritos Pizza 48g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto doritos" style="display: none">
+            <td class="nomeProduto">Doritos Pizza 78g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <!-- ------------------------------------------------------------------------------- -->
           <tr class="familia">
             <td colspan="4">
               <div class="d-grid gap-2">
@@ -161,7 +389,7 @@
             </td>
           </tr>
           <tr class="produto ruffles" style="display: none">
-            <td>Ruffles Sal 300g</td>
+            <td class="nomeProduto">Ruffles Sal 300g</td>
             <td class="totalIpt">0</td>
             <td>
               <input type="number" class="iptEntrada" min="0" placeholder="  +" />
@@ -170,26 +398,223 @@
               <input type="number" class="iptSaida" min="0" placeholder="  -" />
             </td>
           </tr>
+          <tr class="produto ruffles" style="display: none">
+            <td class="nomeProduto">Ruffles Sal 145g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto ruffles" style="display: none">
+            <td class="nomeProduto">Ruffles Sal 92g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto ruffles" style="display: none">
+            <td class="nomeProduto">Ruffles Cebola e Salsa 92g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto ruffles" style="display: none">
+            <td class="nomeProduto">Ruffles Churrasco 92g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto ruffles" style="display: none">
+            <td class="nomeProduto">Ruffles Sal 40g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto ruffles" style="display: none">
+            <td class="nomeProduto">Ruffles Queijo 40g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto ruffles" style="display: none">
+            <td class="nomeProduto">Ruffles Cebola e Salsa 40g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto ruffles" style="display: none">
+            <td class="nomeProduto">Ruffles Churrasco 40g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto ruffles" style="display: none">
+            <td class="nomeProduto">Ruffles Swap Baconzitos 35g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto ruffles" style="display: none">
+            <td class="nomeProduto">Ruffles Swap Cheetos 35g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto ruffles" style="display: none">
+            <td class="nomeProduto">Ruffles Swap Baconzitos 70g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto ruffles" style="display: none">
+            <td class="nomeProduto">Ruffles Swap Cheetos 70g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <!-- ------------------------------------------------------------------------------- -->
+          <tr class="familia">
+            <td colspan="4">
+              <div class="d-grid gap-2">
+                <button class="btn btn-outline-secondary" type="button" onclick="showCebolitos()">Cebolitos</button>
+              </div>
+            </td>
+          </tr>
+          <tr class="produto cebolitos" style="display: none">
+            <td class="nomeProduto">Cebolitos 110g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <tr class="produto cebolitos" style="display: none">
+            <td class="nomeProduto">Cebolitos 33g</td>
+            <td class="totalIpt">0</td>
+            <td>
+              <input type="number" class="iptEntrada" min="0" placeholder="  +" />
+            </td>
+            <td>
+              <input type="number" class="iptSaida" min="0" placeholder="  -" />
+            </td>
+          </tr>
+          <!-- ------------------------------------------------------------------------------- -->
+        </tbody>
+      </table>
+      <table class="table table-striped" id="tableMarcados" style="display: none">
+        <tr>
+          <th colspan="3">Produto</th>
+          <th>Quantidade</th>
+        </tr>
+        <tbody id="produtosMarcados">
+          <tr>
+            <td colspan="3" class="nomeMarcado"></td>
+            <td class="qtMarcado"></td>
+          </tr>
         </tbody>
       </table>
     </div>
     <script>
       let listaLinhaProduto = document.querySelectorAll('.produto');
+      let listaNomeProduto = document.querySelectorAll('.nomeProduto');
       let listaInputsEntrada = document.querySelectorAll('.iptEntrada');
       let listaInputsSaida = document.querySelectorAll('.iptSaida');
       let listaInputsTotal = document.querySelectorAll('.totalIpt');
       let produtos = JSON.parse(localStorage.getItem('produtos'));
+      const tableProdutos = document.getElementById('tableProdutos');
+      const tableMarcados = document.getElementById('tableMarcados');
+      const produtosMarcados = document.getElementById('produtosMarcados');
+      const btnVoltar = document.getElementById('btnVoltar');
+      const btnMarcados = document.getElementById('btnMarcados');
 
       let doritosFlag = false;
       let doritosItems = document.querySelectorAll('.doritos');
       let rufflesFlag = false;
       let rufflesItems = document.querySelectorAll('.ruffles');
+      let cebolitosFlag = false;
+      let cebolitosItems = document.querySelectorAll('.cebolitos');
+      let drinksFlag = false;
+      let drinksItems = document.querySelectorAll('.drink');
+      let amendoinsFlag = false;
+      let amendoinsItems = document.querySelectorAll('.amendoim');
+
+      function exibirMarcados() {
+        tableProdutos.setAttribute('style', 'display: none');
+        tableMarcados.removeAttribute('style');
+        btnMarcados.setAttribute('style', 'display: none');
+        btnVoltar.removeAttribute('style');
+        let data = JSON.parse(localStorage.getItem('produtos'));
+        let marcados = data.filter((value) => value.qt != 0);
+        marcados.forEach((element) => {
+          let line = `<tr>
+            <td colspan="3" class="nomeMarcado">${element.id}</td>
+            <td class="qtMarcado">${element.qt}</td>
+          </tr>`;
+          produtosMarcados.innerHTML += line;
+        });
+      }
+
+      function exibirProdutos() {
+        btnVoltar.setAttribute('style', 'display: none');
+        btnMarcados.removeAttribute('style');
+        tableMarcados.setAttribute('style', 'display: none');
+        tableProdutos.removeAttribute('style');
+        produtosMarcados.innerHTML = '';
+      }
 
       if (!produtos) {
         produtos = [];
         listaLinhaProduto.forEach((element, index) => {
           element = {
-            id: index,
+            id: listaNomeProduto[index].innerHTML,
             qt: 0,
           };
           produtos.push(element);
@@ -269,6 +694,54 @@
           rufflesFlag = false;
 
           rufflesItems.forEach((element, index) => {
+            element.style = 'display: none';
+          });
+        }
+      }
+
+      function showCebolitos() {
+        if (!cebolitosFlag) {
+          cebolitosFlag = true;
+
+          cebolitosItems.forEach((element, index) => {
+            element.style = '';
+          });
+        } else {
+          cebolitosFlag = false;
+
+          cebolitosItems.forEach((element, index) => {
+            element.style = 'display: none';
+          });
+        }
+      }
+
+      function showDrinks() {
+        if (!drinksFlag) {
+          drinksFlag = true;
+
+          drinksItems.forEach((element, index) => {
+            element.style = '';
+          });
+        } else {
+          drinksFlag = false;
+
+          drinksItems.forEach((element, index) => {
+            element.style = 'display: none';
+          });
+        }
+      }
+
+      function showAmendoins() {
+        if (!amendoinsFlag) {
+          amendoinsFlag = true;
+
+          amendoinsItems.forEach((element, index) => {
+            element.style = '';
+          });
+        } else {
+          amendoinsFlag = false;
+
+          amendoinsItems.forEach((element, index) => {
             element.style = 'display: none';
           });
         }
