@@ -4,6 +4,9 @@ let listaInputsSaida = document.querySelectorAll('.iptSaida');
 let listaInputsTotal = document.querySelectorAll('.totalIpt');
 let produtos = JSON.parse(localStorage.getItem('produtos'));
 
+let doritosFlag = false;
+let doritosItems = document.querySelectorAll('.doritos');
+
 if (!produtos) {
   produtos = [];
   listaLinhaProduto.forEach((element, index) => {
@@ -60,9 +63,6 @@ function limpar() {
   localStorage.removeItem('produtos');
   location.href = '/index.html';
 }
-
-let doritosFlag = false;
-let doritosItems = document.querySelectorAll('.doritos');
 
 function showDoritos() {
   if (!doritosFlag) {
