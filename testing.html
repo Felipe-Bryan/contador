@@ -22,10 +22,20 @@
         text-align: center;
         font-weight: 600;
       }
+      .button {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-right: 60px;
+        margin-top: 10px;
+      }
     </style>
   </head>
   <body>
     <div class="table-responsive-sm">
+      <div class="button">
+        <button type="button" class="btn btn-danger" onclick="limpar()">Limpar</button>
+      </div>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -37,10 +47,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="familia">
+          <tr class="familia" onclick="showDoritos()">
             <td colspan="5">Doritos</td>
           </tr>
-          <tr class="produto">
+          <tr class="doritos" style="display: none">
             <td>Doritos Nacho 300g</td>
             <td>8</td>
             <td class="totalIpt">0</td>
@@ -51,7 +61,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto">
+          <tr class="doritos" style="display: none">
             <td>Doritos Nacho 210g</td>
             <td>12</td>
             <td class="totalIpt">0</td>
@@ -62,7 +72,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto">
+          <tr class="doritos" style="display: none">
             <td>Doritos Nacho 140g</td>
             <td>15</td>
             <td class="totalIpt">0</td>
@@ -73,7 +83,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto">
+          <tr class="doritos" style="display: none">
             <td>Doritos Nacho 84g</td>
             <td>25</td>
             <td class="totalIpt">0</td>
@@ -84,7 +94,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto">
+          <tr class="doritos" style="display: none">
             <td>Doritos Nacho 53g</td>
             <td>40</td>
             <td class="totalIpt">0</td>
@@ -95,7 +105,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto">
+          <tr class="doritos" style="display: none">
             <td>Doritos Sweet Chili 53g</td>
             <td>40</td>
             <td class="totalIpt">0</td>
@@ -106,7 +116,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto">
+          <tr class="doritos" style="display: none">
             <td>Doritos Dinamita Chipottle Mayo 84g</td>
             <td>29</td>
             <td class="totalIpt">0</td>
@@ -117,7 +127,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto">
+          <tr class="doritos" style="display: none">
             <td>Doritos Dinamita Spicy Cheese 84g</td>
             <td>29</td>
             <td class="totalIpt">0</td>
@@ -128,7 +138,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto">
+          <tr class="doritos" style="display: none">
             <td>Doritos Dinamita Chipottle Mayo 53g</td>
             <td>72</td>
             <td class="totalIpt">0</td>
@@ -139,7 +149,7 @@
               <input type="number" class="iptSaida" min="0" />
             </td>
           </tr>
-          <tr class="produto">
+          <tr class="doritos" style="display: none">
             <td>Doritos Dinamita Spicy Cheese 53g</td>
             <td>72</td>
             <td class="totalIpt">0</td>
@@ -206,6 +216,34 @@
 
       function saveStorage() {
         localStorage.setItem('produtos', JSON.stringify(produtos));
+      }
+
+      function limpar() {
+        const confirmation = Boolean(confirm('Deseja limpar todos os itens?'));
+        if (!confirmation) {
+          return;
+        }
+        localStorage.removeItem('produtos');
+        location.href = '/index.html';
+      }
+
+      let doritosFlag = false;
+      let doritosItems = document.querySelectorAll('.doritos');
+
+      function showDoritos() {
+        if (!doritosFlag) {
+          doritosFlag = true;
+
+          doritosItems.forEach((element, index) => {
+            element.style = '';
+          });
+        } else {
+          doritosFlag = false;
+
+          doritosItems.forEach((element, index) => {
+            element.style = 'display: none';
+          });
+        }
       }
     </script>
   </body>
